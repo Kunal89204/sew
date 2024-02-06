@@ -46,6 +46,9 @@ const Gallery = ({v1, img1, img2, img3, img4, img5}) => {
         <SwiperSlide><div className='bg-gray-100 sm:w-60 sm:h-40 rounded-xl   w-40 h-24   flex justify-center items-center '>{img5}</div></SwiperSlide>
         
       </Swiper>
+
+
+      
     </div>
   )
 }
