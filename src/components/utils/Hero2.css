@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    margin-left: 60px;
+  }
+  
+  .box {
+    height: 330px;
+    margin: 10px;
+    width: 250px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: skewX(-40deg); /* Apply skew transformation */
+    transition: transform 0.3s; /* Add transition for smooth scaling */
+  }
+  
+  .box:hover {
+    transform: scale(1.1) skewX(-40deg); /* Scale up on hover and maintain skew */
+    z-index: 1; /* Ensure hovered box is on top */
+  }
+  
+  .box.locked {
+    transform: scale(1.1) skewX(-40deg); /* Scale up for locked box and maintain skew */
+  }
+  
+  .box:not(.locked):hover {
+    transform: scale(1.1) skewX(-40deg); /* Scale up for other boxes on hover when not locked and maintain skew */
+  }
+  
+  .box {
+    /* Your existing styles */
+    transform: skewX(-40deg); /* Apply skew transformation */
+    transition: transform 0.3s; /* Add transition for smooth scaling */
+    position: relative; /* Ensure the container is positioned relative */
+    overflow: hidden; /* Hide any overflow */
+  }
+  
+  .box img {
+    /* Position the image absolutely */
+    width: 100%; /* Ensure the image fills the container */
+    height: 100%; /* Ensure the image fills the container */
+    top: 0; /* Position the image at the top */
+    left: 0; /* Position the image at the left */
+    transform: skewX(40deg); /* Counteract skew transformation */
+    object-fit: cover; /* Ensure the image covers the container */
+    background-position: 50%;
+      background-position-x: 50%;
+      background-position-y: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+      left: 50%;
+      min-width: 550px;
+  }

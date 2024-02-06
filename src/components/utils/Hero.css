@@ -1,0 +1,36 @@
+/* Hero.css */
+
+.main-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .slideshow img{
+    width: 50%;
+    height: auto;
+  }
+  .slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .slide {
+    flex: 0 0 auto;
+    width: 100%;
+    transition: transform 0.5s ease;
+  }
+  
+  .text-center {
+    position: relative;
+    z-index: 1;
+    text-align: center; /* Center align text */
+    margin-top: 680px; /* Adjust margin-top as needed */
+  }
+  
