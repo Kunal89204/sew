@@ -6,17 +6,26 @@ import Gallery from "./utils/Gallery";
 import Othercategories from "./utils/Othercategories";
 import Otherproducts from "./utils/Otherproducts";
 import Contactus from "../Contactus";
-import Tables from './utils/Tables'
-
-
+import Tables from "./utils/Tables";
 
 const Product = () => {
-
-  const rowsData = [
-    { name: 'John', age: 25 },
-    { name: 'Alice', age: 30 },
-    
+  // Below code is for adding features of the product in description component
+  const features = [
+    "Feature 1",
+    "Feature 2",
+    "Feature 3",
+    "Feature 4",
+    "Feature 5",
+    "Feature 6",
+    // Add more features as needed
   ];
+
+  // below code is for adding data in the Tables component
+  const rowsData = [
+    { name: "John", age: 25 },
+    { name: "Alice", age: 30 },
+  ];
+
   const defaultImage =
     "https://5.imimg.com/data5/QR/HB/MY-3781527/automatic-pouch-packaging-machines-500x500.jpg";
 
@@ -44,7 +53,6 @@ const Product = () => {
 
   return (
     <>
-      
       <div className="product-box lg:flex py-2 ">
         <div className="img-gallery-box lg:w-1/2 flex justify-center">
           <div className="">
@@ -105,16 +113,22 @@ const Product = () => {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
-          <div className="max-w-4xl w-full p-4 bg-white rounded-lg">
+        <div
+          className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50"
+          onClick={closeModal}
+        >
+          <div className="max-w-4xl w-full p-4 bg-white rounded-lg overflow-hidden shadow-lg">
             <img
               src={selectedImage}
               alt=""
               className="w-full h-auto max-h-[85vh]"
             />
             <button
-              className="absolute top-2 right-2 text-white font-bold text-xl cursor-pointer"
-              onClick={closeModal}
+              className="absolute top-2 right-2 text-white font-bold text-xl cursor-pointer bg-transparent border-none"
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent modal from closing when clicking on the button
+                closeModal();
+              }}
             >
               Close
             </button>
@@ -123,13 +137,15 @@ const Product = () => {
       )}
 
       <Description
-      title="I am Title prop"
-      description="I am description prop and i can be very longggg"
-             />
+        title="I am Title prop"
+        description="I am description prop and i can be very longggg"
+        features={features}
+      />
+
       {/* <Infotable
       title="Props Machine Specs "
        /> */}
-       <Tables rowsData={rowsData} />
+      <Tables rowsData={rowsData} />
       <Gallery />
 
       <div className="contact-btn px-10">
@@ -138,8 +154,60 @@ const Product = () => {
         </button>
       </div>
 
-      <Othercategories />
-      <Otherproducts />
+      <div>
+
+
+        <h1 className="text-4xl px-4 py-10 underline">Similar Products</h1>
+        <div className="p-4 flex flex-wrap">
+
+        <Otherproducts 
+      img="https://5.imimg.com/data5/SC/FQ/MY-3781527/mini-pouch-packing-machine-500x500.jpg"
+      name="Packing Machine"
+      description="This is a good machine please khareed lo"
+      route="/categories"
+      />
+        <Otherproducts 
+      img="https://5.imimg.com/data5/SC/FQ/MY-3781527/mini-pouch-packing-machine-500x500.jpg"
+      name="Packing Machine"
+      description="This is a good machine please khareed lo"
+      route="/categories"
+      />
+        <Otherproducts 
+      img="https://5.imimg.com/data5/SC/FQ/MY-3781527/mini-pouch-packing-machine-500x500.jpg"
+      name="Packing Machine"
+      description="This is a good machine please khareed lo"
+      route="/categories"
+      />
+        <Otherproducts 
+      img="https://5.imimg.com/data5/SC/FQ/MY-3781527/mini-pouch-packing-machine-500x500.jpg"
+      name="Packing Machine"
+      description="This is a good machine please khareed lo"
+      route="/categories"
+      />
+
+        </div>
+      
+
+
+      </div>
+
+      <div>
+      <h1 className="text-4xl  font-semibold p-4 pt-10 underline">Other Categories</h1>
+      <div className="p-4 flex flex-wrap">
+        
+      <Othercategories
+      img="https://5.imimg.com/data5/QR/HB/MY-3781527/automatic-pouch-packaging-machines-500x500.jpg"
+      name="Snack Packing Machine"
+      description="This is a good machine please khareed lo"
+      route="/categories"
+      />
+
+        
+
+
+
+      </div>
+    </div>
       <Contactus />
     </>
   );
